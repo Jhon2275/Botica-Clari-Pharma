@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Botica ClariPharma</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container-box {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .titulo {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h4 {
+            color: #333;
+            font-weight: 600;
+            margin: 15px 0;
+            font-size: 1.3rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1rem;
+        }
+
+        .menu {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .menu a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            color: white;
+        }
+
+        .logout {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f) !important;
+            grid-column: 1 / -1;
+        }
+
+        .logout:hover {
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3) !important;
+        }
+
+        @media (max-width: 768px) {
+            .container-box {
+                padding: 40px 30px;
+            }
+
+            .titulo {
+                font-size: 1.8rem;
+            }
+
+            .menu {
+                grid-template-columns: 1fr;
+            }
+
+            .logout {
+                grid-column: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container-box">
+
+    <h1 class="titulo">
+        <i class="fas fa-hospital" style="margin-right:10px;"></i>Botica ClariPharma
+    </h1>
+
+    <h4>Bienvenido, <b>Usuario</b> </h4>
+
+    <p>Accede a las opciones del sistema</p>
+
+    <div class="menu">
+        <a href="productos.html"><i class="fas fa-pills"></i>Productos</a>
+        <a href="listado.html"><i class="fas fa-list"></i>Listado</a>
+        <a href="info.html"><i class="fas fa-info-circle"></i>Información</a>
+        <a href="login.html" class="logout"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+    </div>
+
+</div>
+
+</body>
+</html>
