@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Botica ClariPharma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 2rem;
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            border: 2px solid #eee;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.3);
+            color: white;
+        }
+
+        .btn-secondary-custom {
+            background: #f5f5f5;
+            color: #333;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-secondary-custom:hover {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        .alert-custom {
+            border-radius: 12px;
+            border: none;
+            background: #fee;
+            color: #c33;
+            text-align: center;
+        }
+
+        .alert-custom i {
+            margin-right: 8px;
+        }
+
+        .text-link {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .text-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="card">
+    <h3>Iniciar Sesión</h3>
+
+    <div id="errorMsg" class="alert alert-custom" role="alert" style="display: none;">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText"></span>
+    </div>
+
+    <form id="loginForm" onsubmit="validarLogin(event)">
+        <input type="text" id="user" class="form-control mb-3" placeholder="Usuario" required autofocus>
+        <input type="password" id="clave" class="form-control mb-4" placeholder="Contraseña" required>
+
+        <button type="submit" class="btn-primary-custom">
+            Ingresar
+        </button>
+    </form>
+
+    <!-- BOTONES -->
+    <div class="text-center mt-4">
+        <p style="color:#666;">¿No tienes cuenta? 
+            <a href="register.html" class="text-link">Crear una</a>
+        </p>
+        <a href="portal.html" class="btn-secondary-custom">← Volver al inicio</a>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+    // Base de datos de usuarios
+    const usuarios = [
+        { user: 'admin', clave: '1234' },
+        { user: 'juan', clave: '1234' },
+        { user: 'senati', clave: '1234' },
+        { user: 'ian', clave: '1234' }
+    ];
+
+    function validarLogin(event) {
+        event.preventDefault();
+        
+        const user = document.getElementById('user').value.trim();
+        const clave = document.getElementById('clave').value.trim();
+        const errorMsg = document.getElementById('errorMsg');
+        const errorText = document.getElementById('errorText');
+        
+        // Buscar el usuario
+        const usuarioValido = usuarios.find(u => u.user === user && u.clave === clave);
+        
+        if (usuarioValido) {
+            // Guardar usuario en localStorage
+            localStorage.setItem('usuarioActual', user);
+            // Redirigir a inicio.html
+            window.location.href = 'inicio.html';
+        } else {
+            // Mostrar error
+            errorText.textContent = 'Usuario o contraseña incorrectos';
+            errorMsg.style.display = 'block';
+            document.getElementById('user').focus();
+        }
+    }
+</script>
+</body>
+</html>
